@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Utillium</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+  <header class="topbar">
+    <button id="sidebarToggle" class="toggle-button">
+      <i class="material-icons">menu</i>
+    </button>
+    <div class="topbar-logo">
+      <div class="logo-icon">U</div>
+      <div class="logo-text">Utillium</div>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar">
+    <nav class="sidebar-nav">
+      <button class="nav-button" data-src="dashboard.html">
+        <i class="material-icons">dashboard</i>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-button" data-src="chat.html">
+        <i class="material-icons">chat</i>
+        <span>Chat</span>
+      </button>
+      <button class="nav-button" data-src="games.html">
+        <i class="material-icons">sports_esports</i>
+        <span>Games</span>
+      </button>
+      <button class="nav-button" data-src="bookmarklets.html">
+        <i class="material-icons">bookmark</i>
+        <span>Bookmarklets</span>
+      </button>
+      <button class="nav-button" data-src="settings.html">
+        <i class="material-icons">settings</i>
+        <span>Settings</span>
+      </button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="iframe-container">
+      <iframe id="contentFrame" src="dashboard.html"></iframe>
+      <div id="loader" class="loading">Loading…</div>
+    </div>
+  </main>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const toggleIcon = toggleBtn.querySelector('i');
+    const buttons = document.querySelectorAll('.nav-button');
+    const iframe = document.getElementById('contentFrame');
+    const loader = document.getElementById('loader');
+
+    toggleBtn.addEventListener('click', () => {
+      const expanded = sidebar.classList.toggle('expanded');
+      toggleIcon.textContent = expanded ? 'close' : 'menu';
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        loader.classList.add('show');
+        iframe.src = btn.dataset.src;
+      });
+    });
+
+    iframe.addEventListener('load', () => loader.classList.remove('show'));
+  </script>
+</body>
+</html>
