@@ -22,7 +22,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 20px;
-  z-index: 1001;
+  z-index: 999;
 }
 
 .toggle-button {
@@ -62,13 +62,13 @@ body {
   position: fixed;
   top: 64px;
   left: 0;
-  width: 64px;
+  width: 54px;
   height: calc(100% - 64px);
   background-color: #ffffff;
   border-right: 1px solid #ddd;
-  transition: width 0.3s ease;
+  transition: width 0.2s ease;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .sidebar.expanded {
@@ -118,7 +118,7 @@ body {
 .main {
   position: fixed;
   top: 64px;
-  left: 64px;
+  left: 54px;
   right: 0;
   bottom: 0;
   transition: left 0.3s ease;
