@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bookmarklet Dashboard</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f7;
+      color: #333;
+      padding: 40px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      color: #20232a;
+    }
+	
+    .header p { font-size: 18px; color: #555; }
+    .section { margin-bottom: 60px; }
+    .section h2 {
+      font-size: 28px;
+      color: #20232a;
+      margin-bottom: 20px;
+      border-left: 6px solid #007bff;
+      padding-left: 12px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+	  user-select: none;
+    }
+    .card:hover { transform: translateY(-6px); }
+    .card .icon { width: 36px; height: 36px; margin-bottom: 16px; border-radius: 8px; }
+    .card h3 { font-size: 20px; margin-bottom: 8px; color: #20232a; }
+    .card p { font-size: 15px; color: #555; flex-grow: 1; margin-bottom: 20px; line-height: 1.5; }
+    .bookmarklet-link {
+      display: inline-block;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .bookmarklet-link:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Bookmarklets</h1>
+    <p>Drag a button to your bookmarks bar to install the tool.</p>
+  </div>
+
+  <div class="section">
+    <h2>Essential Tools</h2>
+    <div class="grid">
+      <div class="card">
+        <img class="icon" src="https://www.google.com/s2/favicons?sz=48&domain_url=https%3A%2F%2Fyoutube.com" alt="Youtube icon" />
+        <h3>Youtube Ad Blocker</h3>
+        <p>Remove elements commonly used for ads.</p>
+        <a class="bookmarklet-link"
+           href="javascript:(function(){document.querySelectorAll('[id*=ad],[class*=ad],[data-ad]').forEach(el=>el.remove());})();"
+           draggable="true">Youtube Ad Blocker</a>
+      </div>
+      <div class="card">
+        <i class="material-icons icon">edit</i>
+        <h3>Live Editor</h3>
+        <p>Enable in-page editing for text and images.</p>
+        <a class="bookmarklet-link"
+           href="javascript:(function(){document.body.contentEditable='true'; document.designMode='on';})();"
+           draggable="true">Install</a>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Customization</h2>
+    <div class="grid">
+      <div class="card">
+        <i class="material-icons icon">palette</i>
+        <h3>Pastel Background</h3>
+        <p>Random soft pastel background color.</p>
+        <a class="bookmarklet-link"
+           href="javascript:(function(){function r(){return Math.floor(Math.random()*150+100);}document.body.style.background='rgb('+r()+','+r()+','+r()+')';})();"
+           draggable="true">Install</a>
+      </div>
+      <div class="card">
+        <i class="material-icons icon">swap_vert</i>
+        <h3>Smooth Auto-Scroll</h3>
+        <p>Toggle smooth auto-scroll down the page.</p>
+        <a class="bookmarklet-link"
+           href="javascript:(function(){if(window._autoScroll){clearInterval(window._autoScroll);window._autoScroll=null;}else{window._autoScroll=setInterval(()=>window.scrollBy(0,1),10);}})();"
+           draggable="true">Install</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Cheats</h2>
+    <div class="grid">
+      <div class="card">
+        <img class="icon" src="https://www.google.com/s2/favicons?sz=256&domain_url=https%3A%2F%2Fblooket.com" alt="Blooket icon" />
+        <h3>Blooket Menu</h3>
+        <p>Open extra features for Blooket games.</p>
+        <a class="bookmarklet-link"
+           href="javascript:(()=>{var s=document.createElement('script');s.src='js/bookmarklets/blooketmenu.js';document.body.appendChild(s);})();"
+           draggable="true">Blooket Menu</a>
+      </div>
+      <div class="card">
+        <img class="icon" src="https://www.google.com/s2/favicons?sz=256&domain_url=https%3A%2F%2Fkahoot.com" alt="Kahoot icon" />
+        <h3>Kahoot Menu</h3>
+        <p>Alert current page title and URL.</p>
+        <a class="bookmarklet-link"
+           href="javascript:(()=>{var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/jokeri2222/KaHack/KaHack!.user.js';document.body.appendChild(s);})();"
+           draggable="true">Kahoot Menu</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
